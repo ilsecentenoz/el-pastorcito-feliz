@@ -1,21 +1,22 @@
-var $name = $("#name_user");
-var $email = $("#email_user");
-var $btnUser=$("btn_register");
 
-var cargarPagina = function(){
-  $name.keyup(validar);
-  $email.keyup(validar);
+var $email= $('#email_user');
+var $telefono= $('#phone_user');
+var $nombre= $('#name_user');
+var $btnRegistro= $('#btn-register');
 
-};
+var cargarPagina= function(){
+	$nombre.keyup(validUser);
+	$email.keyup(validUser);
+	$telefono.keyup(validUser);
+}
 
-function validar(){
-  var $inputName= $name.val();
-  var $inputEmail= $email.val();
-
-  if( $inputName == null || $inputName.length == 0 || /^\s+$/.test($inputName)) {
-
-    console.log("gatito incorrecto");
-
-  }
+function validUser(){
+	if($email.val(), $telefono.val(), $nombre.val() != ""){
+		if ($telefono.val().length === 10 ) {
+			$btnRegistro.removeClass('disabled');
+		}
+	}
+}
 
 $(document).ready(cargarPagina);
+
